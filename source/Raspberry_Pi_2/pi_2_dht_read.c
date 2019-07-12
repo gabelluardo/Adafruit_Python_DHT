@@ -60,7 +60,8 @@ int pi_2_dht_read(int type, int pin, float* humidity, float* temperature) {
 
   // Set pin high for ~500 milliseconds.
   pi_2_mmio_set_high(pin);
-  sleep_milliseconds(500);
+  // this value is modified due https://github.com/adafruit/Adafruit_Python_DHT/issues/58
+  sleep_milliseconds(80);
 
   // The next calls are timing critical and care should be taken
   // to ensure no unnecssary work is done below.
